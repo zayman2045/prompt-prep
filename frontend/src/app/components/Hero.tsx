@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="container mx-auto px-6 py-20 text-center">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+        <h1 className="text-5xl md:text-5xl font-bold text-white mb-6">
           Generate AI
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
             {" "}
