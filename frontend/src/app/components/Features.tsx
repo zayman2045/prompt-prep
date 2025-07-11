@@ -2,7 +2,7 @@ export default function Features() {
   return (
     <section id="features" className="container mx-auto px-6 py-20">
       <h2 className="text-4xl font-bold text-white text-center mb-16">
-        Why Choose PromptPrep?
+        Why Choose Prompt Prep?
       </h2>
       <div className="grid md:grid-cols-3 gap-8">
         <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center">
