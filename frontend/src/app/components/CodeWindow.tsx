@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export function CodeWindow() {
-  const [code, setCode] = useState(`// Welcome to PromptPrep!
+  const [code, setCode] = useState(`// Welcome to Prompt Prep!
 // Start building your AI prompts here
 
 const prompt = \`You are a helpful AI assistant. 
