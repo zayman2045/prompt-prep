@@ -1,4 +1,4 @@
-import { CodeWindow } from "./CodeWindow";
+import { ChallengeWorkspace } from "./ChallengeWorkspace";
 
 export default function Hero() {
   return (
@@ -17,7 +17,7 @@ export default function Hero() {
         </p>
 
         <div className="mb-12">
-          <CodeWindow />
+          <ChallengeWorkspace />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
