@@ -1,20 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import React from "react";
+
+const categories = [
+  { value: "strings", label: "String Manipulation" },
+  { value: "arrays", label: "Array Problems" },
+  { value: "trees", label: "Trees & Graphs" },
+  { value: "dynamic-programming", label: "Dynamic Programming" },
+  { value: "recursion", label: "Recursion" },
+  { value: "sorting", label: "Sorting & Searching" },
+];
 
 export function CodeWindow() {
   const [difficulty, setDifficulty] = useState("medium");
-  const [category, setCategory] = useState("algorithms");
+  const [category, setCategory] = useState("strings");
   const [code, setCode] = useState(``);
+  const [promptText, setPromptText] = useState("");
 
-  const categories = [
-    { value: "strings", label: "String Manipulation" },
-    { value: "arrays", label: "Array Problems" },
-    { value: "trees", label: "Trees & Graphs" },
-    { value: "dynamic-programming", label: "Dynamic Programming" },
-    { value: "recursion", label: "Recursion" },
-    { value: "sorting", label: "Sorting & Searching" },
-];
+  // Update prompt text whenever difficulty or category changes
+  React.useEffect(() => {
+    const categoryLabel =
+      categories.find((c) => c.value === category)?.label.toLowerCase() || "";
+    const newPrompt = `Create a ${difficulty} difficulty ${categoryLabel} coding challenge.`;
+    setPromptText(newPrompt);
+  }, [difficulty, category]);
 
   return (
     <div className="w-full max-w-4xl mx-auto">
@@ -22,9 +32,6 @@ export function CodeWindow() {
       <div className="bg-gradient-to-r from-purple-900 to-blue-900 rounded-t-lg p-6">
         <div className="flex flex-col lg:flex-row gap-6 items-center">
           <div className="flex-1">
-            <h3 className="text-white font-semibold mb-3">
-              Generate Coding Challenge
-            </h3>
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Difficulty Selector */}
               <div className="flex-1">
@@ -81,6 +88,18 @@ export function CodeWindow() {
         </div>
       </div>
 
+      {/* Dynamic Prompt Display */}
+      <div className="bg-gray-800 border-b border-gray-700 p-4">
+        <div className="text-gray-300 font-mono text-sm">
+          <div className="mb-2">
+            <span className="text-blue-400">Prompt:</span>
+          </div>
+          <div className="bg-gray-900 p-3 rounded-lg border border-gray-600">
+            {promptText}
+          </div>
+        </div>
+      </div>
+
       {/* Code Editor */}
       <div className="bg-gray-900 rounded-b-lg overflow-hidden">
         <div className="flex">
@@ -113,22 +132,7 @@ export function CodeWindow() {
               challenge-generator.js
             </div>
             <div className="text-gray-300">
-              Create a {difficulty} difficulty{" "}
-              {categories
-                .find((c) => c.value === category)
-                ?.label.toLowerCase()}{" "}
-              coding challenge.
-            </div>
-            <div className="text-gray-300 mb-2">Requirements:</div>
-            <div className="text-gray-300 ml-4">
-              • Clear problem description
-              <br />
-              • Input/output examples
-              <br />
-              • Edge cases to consider
-              <br />
-              • Expected time complexity
-              <br />• Hints for solving
+              Challenge generated successfully!
             </div>
           </div>
         </div>
