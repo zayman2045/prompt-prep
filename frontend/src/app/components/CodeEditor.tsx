@@ -1,11 +1,10 @@
 "use client";
 
-interface CodeEditorProps {
-  code: string;
-  setCode: (code: string) => void;
-}
+import { useState } from "react";
 
-export function CodeEditor({ code, setCode }: CodeEditorProps) {
+export function CodeEditor() {
+  const [code, setCode] = useState("");
+  
   return (
     <div className="bg-gray-900 rounded-b-lg overflow-hidden">
       <div className="flex">
