@@ -26,7 +26,16 @@ class Solution {
             if (n % 2 == 0) {
                 length += n;
             } else {
-                highestOdd = Math.max(highestOdd, n);
+                if (highestOdd === 0) {
+                    highestOdd = n;
+                } else if (n > highestOdd) {
+                    // Add highestOdd - 1 to the length and make this the new highest odd
+                    length += highestOdd - 1;
+                    highestOdd = n;
+                } else {
+                    // Add n - 1 to the length and continue
+                    length += n - 1;
+                }
             }
         }
 
